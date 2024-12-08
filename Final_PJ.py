@@ -66,7 +66,7 @@ class ThingManager:
         for thing in self.things:
             if thing.name.lower() == name.lower():
                 thing.name = kwargs.get("name", thing.name)
-                thing.type = kwargs.get("type", thing.type)
+                thing.type = kwargs.get("type",gi thing.type)
                 thing.color = kwargs.get("color", thing.color)
                 thing.weight = kwargs.get("weight", thing.weight)
                 thing.age = kwargs.get("age", thing.age)
