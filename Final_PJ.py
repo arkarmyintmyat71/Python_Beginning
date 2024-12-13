@@ -1,6 +1,6 @@
 import json
 import csv
-
+from prettytable import PrettyTable
 # Define the Thing class
 class Thing:
     def __init__(self, name, type_, color, weight, age):
@@ -22,10 +22,16 @@ class ThingManager:
     def display_all(self):
         print("\nAll Things:")
         if self.things:
+            table = PrettyTable()
+            table.field_names = ["Name", "Type", "Color", "Weight (kg)", "Age (years)"]
+
             for thing in self.things:
-                print(thing)
+                table.add_row([thing.name, thing.type, thing.color, thing.weight, thing.age])
+
+            print("\nAll Things:")
+            print(table)
         else:
-            print("No things to display.")
+            print("\nNo things to display.")
 
     def add_thing(self, name, type_, color, weight, age):
         if weight <= 0 or age < 0:
@@ -34,9 +40,6 @@ class ThingManager:
         new_thing = Thing(name, type_, color, weight, age)
         self.things.append(new_thing)
         print(f"{name} added successfully!")
-
-    def total_number(self):
-        return len(self.things)
 
     def search_by_name(self, name):
         results = [thing for thing in self.things if thing.name.lower() == name.lower()]
@@ -66,7 +69,7 @@ class ThingManager:
         for thing in self.things:
             if thing.name.lower() == name.lower():
                 thing.name = kwargs.get("name", thing.name)
-                thing.type = kwargs.get("type",gi thing.type)
+                thing.type = kwargs.get("type_", thing.type)
                 thing.color = kwargs.get("color", thing.color)
                 thing.weight = kwargs.get("weight", thing.weight)
                 thing.age = kwargs.get("age", thing.age)
@@ -156,10 +159,12 @@ def menu():
             manager.delete_thing(name)
         elif choice == "6":
             name = input("Enter name to update: ")
+            type_ = input("Enter new type (leave blank to keep current): ")
             color = input("Enter new color (leave blank to keep current): ")
             weight = input("Enter new weight (leave blank to keep current): ")
             age = input("Enter new age (leave blank to keep current): ")
             update_args = {}
+            if type_: update_args['type_'] = type_
             if color: update_args['color'] = color
             if weight: update_args['weight'] = float(weight)
             if age: update_args['age'] = int(age)
