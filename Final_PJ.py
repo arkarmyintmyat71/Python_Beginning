@@ -1,6 +1,7 @@
 import json
 import csv
 from prettytable import PrettyTable
+
 # Define the Thing class
 class Thing:
     def __init__(self, name, type_, color, weight, age):
@@ -34,7 +35,7 @@ class ThingManager:
             print("\nNo things to display.")
 
     def add_thing(self, name, type_, color, weight, age):
-        if weight <= 0 or age < 0:
+        if weight < 0 or age < 0:
             print("Invalid weight or age. Please enter positive values.")
             return
         new_thing = Thing(name, type_, color, weight, age)
@@ -44,16 +45,24 @@ class ThingManager:
     def search_by_name(self, name):
         results = [thing for thing in self.things if thing.name.lower() == name.lower()]
         if results:
+            table = PrettyTable()
+            table.field_names = ["Name", "Type", "Color", "Weight (kg)", "Age (years)"]
+
             for result in results:
-                print(result)
+                table.add_row([result.name, result.type, result.color, result.weight, result.age])
+                print(table)
         else:
             print("No match found.")
 
     def search_by_group(self, type_):
         results = [thing for thing in self.things if thing.type.lower() == type_.lower()]
         if results:
+            table = PrettyTable()
+            table.field_names = ["Name", "Type", "Color", "Weight (kg)", "Age (years)"]
+
             for result in results:
-                print(result)
+                table.add_row([result.name, result.type, result.color, result.weight, result.age])
+                print(table)
         else:
             print("No match found.")
 
