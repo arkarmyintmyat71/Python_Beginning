@@ -1,1 +1,12 @@
-[{"name": "Oggy", "type": "Cat", "color": "Blue", "weight": 3.4, "age": 2}]
+[
+    {"name": "Toy Car", "type": "Toy", "color": "Red", "weight": 0.5, "age": 2},
+    {"name": "Laptop", "type": "Electronics", "color": "Black", "weight": 1.8, "age": 3},
+    {"name": "Chair", "type": "Furniture", "color": "Brown", "weight": 4.5, "age": 5},
+    {"name": "Apple", "type": "Food", "color": "Green", "weight": 0.2, "age": 1},
+    {"name": "Dog", "type": "Animal", "color": "Golden", "weight": 10, "age": 4},
+    {"name": "Shirt", "type": "Clothing", "color": "Blue", "weight": 0.3, "age": 1},
+    {"name": "Sofa", "type": "Furniture", "color": "Gray", "weight": 25, "age": 7},
+    {"name": "Phone", "type": "Electronics", "color": "Silver", "weight": 0.2, "age": 2},
+    {"name": "Bicycle", "type": "Vehicle", "color": "Yellow", "weight": 10, "age": 3},
+    {"name": "Clock", "type": "Accessory", "color": "White", "weight": 0.8, "age": 6}
+]
